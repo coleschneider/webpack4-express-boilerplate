@@ -1,6 +1,15 @@
 const express = require("express");
 const app = express()
 const path = require("path")
+
+const cors = require('cors');
+app.use(cors())
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 //webpack middleware
 const webpack = require("webpack")
 const webpackDevMiddleware = require("webpack-dev-middleware")
@@ -20,6 +29,9 @@ app.use((webpackHotMiddleware)(webpackCompiler, {
     heartbeat: 10 * 1000
 }))
 app.use(express.static(path.join(__dirname, 'dist')))
+const indexRoute = require('./routes')
+
+app.use('/api', indexRoute);
 
 
 
