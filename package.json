@@ -27,7 +27,9 @@
     "webpack-hot-middleware": "^2.22.1"
   },
   "dependencies": {
+    "aws-sdk": "^2.231.1",
     "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
   }

@@ -1,5 +1,8 @@
+
 const express = require("express");
 const app = express()
+const dotenv = require("dotenv")
+dotenv.load();
 const path = require("path")
 
 const cors = require('cors');
